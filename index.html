@@ -1,64 +1,46 @@
+<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8">
       <script src="http://yui.yahooapis.com/3.13.0/build/yui/yui-min.js"></script>
-    <title>Parallax Scrolling Demo</title>
-        <script src="pixi.js/bin/pixi.dev.js"></script>  
-      <style>
-            
-      body { background-color: #000000; }
-      canvas { background-color: #222222; }
-    </style>
-  </head>
-  <body>
-      <div align="center">
-    <canvas id="game-canvas" width="512" height="384"></canvas>
-        <br/>
-        <canvas id="hand-canvas" width="512" height="200"></canvas>
-  </div>
-  </body>
-</html>
-
-<script type="text/javascript">
-    YUI().use('node', function (Y) {
-        var stage, render ,update, far ,mid;
-        
-       Y.on('domready', function (){
-            stage = new PIXI.Stage(0x66FF99,true );
-            gamecanvas = document.getElementById("game-canvas");
-            renderer = PIXI.autoDetectRenderer(
-                   512,
-                    384,
-                    gamecanvas
-              );
-           
-           var farTexture = PIXI.Texture.fromImage("resources/bg-far.png");
-           far = new PIXI.TilingSprite(farTexture, 512, 256);
-           far.position.x = 0;
-           far.position.y = 0;
-            far.tilePosition.x = 0;
-            far.tilePosition.y = 0;
-           stage.addChild(far);
-           
-           var midTexture = PIXI.Texture.fromImage("resources/bg-mid.png");
-           mid = new PIXI.TilingSprite(midTexture, 512, 256);
-          mid.position.x = 0;
-          mid.position.y = 128;
-          mid.tilePosition.x = 0;
-          mid.tilePosition.y = 0;
-           stage.addChild(mid);
-           
-           
-           requestAnimFrame(update);
-       });
-        
-        update = function () {
-            far.tilePosition.x -= 0.128;
-            mid.tilePosition.x -= 0.64;
-            renderer.render(stage);
-            requestAnimFrame(update);  
+      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    </head>
+    <style>
+    .circleBase {
+            -webkit-border-radius: 999px;
+            -moz-border-radius: 999px;
+            border-radius: 999px;
+               margin: auto; 
+             vertical-align: middle;
         }
-    });
 
-
-</script>
+.type1 {
+    width: 350px;
+    height: 350px;
+    border: 3px solid red;
+}
+    .pure-menu{
+            position:relative;
+            left:80px;
+            top : 60px;
+         
+        }
+    
+    </style>
+    <body>
+        <div class="circleBase type1 pure-g">
+          <div class="pure-u-1-2">   
+        <div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading">The Familars</a>
+            <ul>
+                <li><a href="#">Getting Started</a></li>
+                <li><a href="#">Explore</a></li>
+                <li><a href="#">Battle Ground</a></li>
+                <li><a href="#">Manage Decks</a></li>
+                <li><a href="#">Manage Champions</a></li>
+            </ul>
+        </div>
+              </div>
+        </div>
+    </body>
+</html>
