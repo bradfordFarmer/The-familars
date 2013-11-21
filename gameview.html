@@ -1,0 +1,72 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <meta charset="UTF-8">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.js"></script>
+      <script src="http://yui.yahooapis.com/3.13.0/build/yui/yui-min.js"></script>
+      <script src = " gameController.js"></script>
+      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/base-min.css">
+    <title>Parallax Scrolling Demo</title> 
+  </head>
+    <body>
+        
+
+     <div ng-controller="handCtrl">
+         
+         <!---- Waiting ----> 
+         
+         
+         
+         <!----  Resources ---->
+         <div id = " resources" > 
+            <li ng-repeat="resource  in resources" class  =" dropZone">
+                {{resource.quantity}}
+            </li> 
+         </div>
+         
+         
+         <!----  DropZones ---->
+         <div id="dropZones"> 
+          <ul class="unstyled">
+            <li ng-repeat="slot in slots" class  =" dropZone">
+                {{slot.image}}
+            </li> 
+          </ul>
+         </div>
+         
+        <!----  Cards in hand ---->
+         <div id ="hand" >
+          <ul class="unstyled">
+            <li ng-repeat="card in cards" class = "card" ng-dblclick= "showFullCardDetails($index)">
+                <div  id="cardBackgroundFrame" ><img ng-src="{{card.frameURL}}"></div>
+                <ul class =" unstyles"> 
+                    <li ng-repeat = "ability in card.abiltities">  
+                            <div  id="abilityFrame" ><img ng-src="{{ability.frameURL}}"></div>
+                    </li>
+                
+                </ul>
+            </li> 
+          </ul>
+        </div>
+         
+        <!----  Cards in full Details  ----> 
+        <div id ="fullCards" >
+          <ul class="unstyled">
+            <li ng-repeat="card in cards" class = "fullCard" ng-dblclick= "hideFullCardDetals($index)">
+                
+              
+              </li> 
+          </ul>
+        </div>
+         
+         
+        <!----  Promotion ---->
+        <div id ="promotion"> 
+         
+        </div> 
+         
+      </div>
+    </body>
+</html>
+
